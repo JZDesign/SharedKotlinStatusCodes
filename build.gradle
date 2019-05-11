@@ -17,7 +17,7 @@ kotlin {
     jvm()
 
     targets {
-        fromPreset(presets.iosArm64, 'ios') {
+        fromPreset(presets.iosX64, 'ios') {
             binaries {
                 framework("$ios_framework_name") {
 //                    embedBitcode('disable')
