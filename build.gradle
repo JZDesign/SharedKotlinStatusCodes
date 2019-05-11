@@ -61,7 +61,7 @@ configurations {
 }
 
 task packForXCode {
-    final File frameworkDir = new File(rootProject.rootDir, "xcode-frameworks")
+    final File frameworkDir = rootProject.rootDir
     final String buildType = project.findProperty("XCODE_CONFIGURATION")?.toUpperCase() ?: 'DEBUG'
 
     def keyFrameworkPrefix = "$ios_framework_name${buildType.toLowerCase().capitalize()}"
