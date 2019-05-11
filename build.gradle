@@ -79,9 +79,7 @@ task packForXCode {
             text = "#!/bin/bash\nexport 'JAVA_HOME=${System.getProperty("java.home")}'\ncd '${rootProject.rootDir}'\n./gradlew \$@\n"
             setExecutable(true)
         }
-
-        refreshArchive
-
+        
     }
 }
 
