@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>DTPlatformBuild</key>
+	<string>16E226</string>
+	<key>DTXcodeBuild</key>
+	<string>10E125</string>
+	<key>DTPlatformVersion</key>
+	<string>12.2</string>
+	<key>DTSDKBuild</key>
+	<string>16E226</string>
+	<key>DTXCode</key>
+	<string>1020</string>
 	<key>DTSDKName</key>
 	<string>iphoneos12.2</string>
 	<key>CFBundleExecutable</key>
