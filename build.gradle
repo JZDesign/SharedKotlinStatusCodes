@@ -17,10 +17,10 @@ kotlin {
     jvm()
 
     targets {
-        fromPreset(presets.iosX64, 'ios') {
+        fromPreset(presets.iosArm64, 'ios') {
             binaries {
                 framework("$ios_framework_name") {
-                    embedBitcode('disable')
+//                    embedBitcode('disable')
                 }
             }
         }
