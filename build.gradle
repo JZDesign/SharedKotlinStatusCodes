@@ -92,7 +92,7 @@ task refreshArchive(type: Zip) {
 
         }
     }
-
+    
     from "${rootProject.rootDir}/build/xcode-frameworks/"
     include '*/*' //to include contents of a folder present inside Reports directory
     archiveName 'StatusCodes.zip'
