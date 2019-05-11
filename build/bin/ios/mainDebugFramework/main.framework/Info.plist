@@ -5,7 +5,7 @@
     <key>CFBundleExecutable</key>
     <string>main</string>
     <key>CFBundleIdentifier</key>
-    <string>main</string>
+    <string>StatusCode.main</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
