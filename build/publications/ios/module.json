@@ -1,0 +1,27 @@
+{
+  "formatVersion": "0.4",
+  "component": {
+    "url": "../../StatusCodes/0.0.1/StatusCodes-0.0.1.module",
+    "group": "com.example",
+    "module": "StatusCodes",
+    "version": "0.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "5.2.1",
+      "buildId": "hwwi5m64e5e7jpecc5maiduahm"
+    }
+  },
+  "variants": [
+    {
+      "name": "ios-api",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": []
