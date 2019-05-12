@@ -1,6 +1,0 @@
-framework module StatusCodeHandler {
-    umbrella header "StatusCodeHandler.h"
-
-    export *
-    module * { export * }
-}
