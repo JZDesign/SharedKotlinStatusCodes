@@ -89,10 +89,22 @@ task refreshArchive(type: Zip) {
         }
     }
 
-    from "${rootProject.rootDir}/build/xcode-frameworks/"
-    include '*/**' //to include contents of a folder present inside Reports directory
-    archiveName 'StatusCodeHandler.zip'
-    destinationDir file(rootProject.rootDir)
+
+    // This bit of code creates a zip file that will not
+    // work properly when unzipped. The mac compression process
+    // is the appropriate way to handle this.
+
+    // TODO: Write a bash script that does the following
+    //  1: deletes the zip from the projects root dir
+    //  1.5: does a git commit
+    //  2: zips the framework
+    //  3: moves the zip to the root dir
+    //  3.5: does a git commit
+
+//    from "${rootProject.rootDir}/build/xcode-frameworks/"
+//    include '*/**' //to include contents of a folder present inside Reports directory
+//    archiveName 'StatusCodeHandler.zip'
+//    destinationDir file(rootProject.rootDir)
 
 }
 
