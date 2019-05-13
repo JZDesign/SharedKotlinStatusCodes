@@ -4,14 +4,25 @@ import StatusCode.StatusCode
 import StatusCode.StatusCodes
 import kotlin.test.*
 
-class SourceCodesTests()  {
+class StatusCodesTests()  {
     @Test fun `accepted returns false`() {
         assertFalse(StatusCodes().isAccepted(100))
         assertFalse(StatusCodes().isAccepted(200))
+        assertFalse(StatusCodes().toStatusCode(100).accepted())
     }
 
     @Test fun `accepted returns true`() {
         assertTrue(StatusCodes().isAccepted(202))
+        assertTrue(StatusCodes().toStatusCode(202).accepted())
+    }
+
+    @Test fun `ifAccpeted block executes`() {
+        assertFails { StatusCodes().toStatusCode(202).ifAccepted { assertTrue(false) } }
+        StatusCodes().toStatusCode(202).ifAccepted { assertTrue(true) }
+    }
+
+    @Test fun `ifAccepted block does not execute`() {
+        StatusCodes().toStatusCode(100).ifAccepted { assertTrue(true) }
     }
 
     @Test fun `toStatusCode returns generic`() {
