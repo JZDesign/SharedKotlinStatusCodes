@@ -1,22 +1,33 @@
 buildscript {
     ext.ios_framework_name = 'StatusCodeHandler'
+    ext.serialization_version = "0.11.0"
+    ext.kotlin_version = '1.3.31'
+    ext.kotlinx_version = '1.3.30'
+   
 }
+
 plugins {
-    id 'kotlin-multiplatform' version '1.3.21'
+    id 'kotlin-multiplatform' version '1.3.31'
+    id 'kotlinx-serialization' version '1.3.30'
 }
+
 repositories {
     mavenCentral()
+    jcenter()
+    maven { url "https://kotlin.bintray.com/kotlinx" }
 }
+
 group 'com.example'
 version '0.0.1'
 
 apply plugin: 'maven-publish'
 
-
 kotlin {
-    jvm()
+//    jvm()
 
     targets {
+        fromPreset(presets.jvm, 'jvm')
+
         fromPreset(presets.iosX64, 'ios') {
             binaries {
                 framework("$ios_framework_name") {
@@ -30,6 +41,8 @@ kotlin {
         commonMain {
             dependencies {
                 implementation kotlin('stdlib-common')
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serialization_version"
+
             }
         }
         commonTest {
@@ -41,6 +54,8 @@ kotlin {
         jvmMain {
             dependencies {
                 implementation kotlin('stdlib')
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
+
             }
         }
         jvmTest {
@@ -50,15 +65,16 @@ kotlin {
             }
         }
         iosMain {
+            dependencies {
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serialization_version"
+            }
+
         }
         iosTest {
         }
     }
 }
 
-configurations {
-    compileClasspath
-}
 
 task packForXCode {
     final File frameworkDir = new File(buildDir, "xcode-frameworks")
@@ -82,31 +98,9 @@ task packForXCode {
     }
 }
 
-task refreshArchive(type: Zip) {
-    doFirst {
-        delete fileTree(rootProject.rootDir) {
-            include 'StatusCodeHandler.zip'
-        }
-    }
-
-
-    // This bit of code creates a zip file that will not
-    // work properly when unzipped. The mac compression process
-    // is the appropriate way to handle this.
-
-    // TODO: Write a bash script that does the following
-    //  1: deletes the zip from the projects root dir
-    //  1.5: does a git commit
-    //  2: zips the framework
-    //  3: moves the zip to the root dir
-    //  3.5: does a git commit
-
-//    from "${rootProject.rootDir}/build/xcode-frameworks/"
-//    include '*/**' //to include contents of a folder present inside Reports directory
-//    archiveName 'StatusCodeHandler.zip'
-//    destinationDir file(rootProject.rootDir)
-
-}
-
-
 tasks.build.dependsOn packForXCode
+
+
+configurations {
+    compileClasspath
+}
