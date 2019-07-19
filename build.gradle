@@ -77,7 +77,7 @@ kotlin {
 
 
 task packForXCode {
-    final File frameworkDir = new File(buildDir, "xcode-frameworks")
+    final File frameworkDir = new File(rootDir, "xcode-frameworks")
     final String buildType = project.findProperty("XCODE_CONFIGURATION")?.toUpperCase() ?: 'DEBUG'
 
     def keyFrameworkPrefix = "$ios_framework_name${buildType.toLowerCase().capitalize()}"
