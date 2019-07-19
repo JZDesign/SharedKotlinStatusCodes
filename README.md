@@ -6,7 +6,7 @@ A shared resource for identifying HTTP status codes, erros, and successes.
 
 ## Carthage 
 
-Cartfile : `binary "https://raw.githubusercontent.com/JZDesign/SharedKotlinStatusCodes/master/SharedKotlinStatusCodes.json" ~> 0.1`
+Cartfile :  `github "JZDesign/SharedKotlinStatusCodes" "0.11"`
 
 ## Updating iOS Framework
 
