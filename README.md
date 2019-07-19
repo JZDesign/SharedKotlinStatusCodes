@@ -10,7 +10,7 @@ Cartfile :  `github "JZDesign/SharedKotlinStatusCodes" "0.2"`
 
 ## Updating iOS Framework
 
-Run the `PackForXCode` script in the `build.gradle` file. Then manually compress the results found in the `build/xcode-frameworks` directory. Paste that into the projects `root` directory and push it to git.
+Run the `PackForXCode` script in the `build.gradle` file. 
 
 ## Building all other (non apple) libraries
 
